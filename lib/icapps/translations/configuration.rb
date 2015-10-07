@@ -19,8 +19,6 @@ module Icapps
           puts "[MESSAGE] Configuration created at '#{path}'.".colorize(:green)
         end
 
-        private
-
         def exists?
           File.exists?(path)
         end
@@ -48,6 +46,12 @@ module Icapps
 
       def initialize
         read_config if Configuration.exists?
+      end
+
+      def validate
+        abort '[ERROR] You need to provide a project key in the .translations configuration file.'.colorize(:red) unless @project_key
+        abort '[ERROR] You need to provide an url in the .translations configuration file.'.colorize(:red) unless @url
+        abort '[ERROR] You need to provide a default filename in the .translations configuration file.'.colorize(:red) unless @filename
       end
 
       private

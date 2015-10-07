@@ -1,5 +1,6 @@
 require "icapps/translations/version"
 require "icapps/translations/cli"
+require "icapps/translations/strings"
 
 module Icapps
   module Translations
@@ -8,6 +9,14 @@ module Icapps
 
       def config
         @config ||= Configuration.new
+      end
+
+      def import
+        # Validate the configuration file. Abort when invalid.
+        config.validate
+
+        # Import the strings files.
+        Strings.import
       end
     end
   end
