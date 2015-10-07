@@ -3,7 +3,7 @@ require 'colorize'
 
 module Icapps
   module Translations
-    class Cli < Thor
+    class CLI < Thor
       desc 'init', 'Prepare the current folder to use iCapps translations.'
       long_desc <<-LONGDESC
       'init' will generate a .translations configuration file at the location where you run the script. You should do this in the project root.
