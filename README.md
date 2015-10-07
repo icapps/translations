@@ -23,6 +23,15 @@ Or install it yourself as:
 - `translations init`: Run from your project root in order to setup the translations configuration.
 - `translations import`: Run from your project root in order to import the translations into the matching _.strings_ files.
 
+## Build gem
+
+Start by updating the version number in the `lib/icapps/translations/version.rb` file.
+
+Then build the gem by running the following commands:
+
+    rake build
+    rake release
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/icapps-translations/fork )
