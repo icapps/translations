@@ -3,6 +3,12 @@ require "icapps/translations/cli"
 
 module Icapps
   module Translations
-    # Your code goes here...
+    class << self
+      attr_accessor :options
+
+      def config
+        @config ||= Configuration.new
+      end
+    end
   end
 end

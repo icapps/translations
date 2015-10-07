@@ -1,6 +1,8 @@
 require 'thor'
 require 'colorize'
 
+require "icapps/translations/configuration"
+
 module Icapps
   module Translations
     class CLI < Thor
@@ -17,6 +19,8 @@ module Icapps
       option :verbose, type: :boolean
       def init
         puts "[VERBOSE] Running the 'translations init command'.".colorize(:white) if options[:verbose]
+        ::Icapps::Translations.options = options
+        ::Icapps::Translations::Configuration.create
       end
 
       desc 'import', 'Import the translations into your project\'s .string files.'
@@ -28,6 +32,8 @@ module Icapps
       option :verbose, type: :boolean
       def import
         puts "[VERBOSE] Running the 'translations import command'.".colorize(:white) if options[:verbose]
+        ::Icapps::Translations.options = options
+        ::Icapps::Translations.import
       end
     end
   end
