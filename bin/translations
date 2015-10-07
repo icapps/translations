@@ -1,0 +1,5 @@
+#!/usr/bin/ruby
+
+require 'icapps/translations'
+
+Icapps::Translations::Cli.start ARGV
