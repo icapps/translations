@@ -18,6 +18,17 @@ module Icapps
       def init
         puts "[VERBOSE] Running the 'translations init command'.".colorize(:white) if options[:verbose]
       end
+
+      desc 'import', 'Import the translations into your project\'s .string files.'
+      long_desc <<-LONGDESC
+      'import' will overwrite all the matching .strings files in your project. You should do this in the project root.
+
+      With --verbose option, some extra loggin is shown.
+      LONGDESC
+      option :verbose, type: :boolean
+      def import
+        puts "[VERBOSE] Running the 'translations import command'.".colorize(:white) if options[:verbose]
+      end
     end
   end
 end
