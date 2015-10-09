@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jelle Vandebeeck"]
   spec.email         = ["jelle.vandebeeck@icapps.com"]
   spec.summary       = %q{Import translations from the iCapps translations portal.}
-  spec.homepage      = 'https://github.com/fousa/icapps-translations'
+  spec.homepage      = 'https://github.com/icapps/translations'
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
