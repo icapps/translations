@@ -1,4 +1,4 @@
-# iCapps Tranlstions
+# iCapps Translations
 
 Import the translations from the iCapps translations portal.
 
