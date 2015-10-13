@@ -1,8 +1,8 @@
 require 'thor'
 require 'colorize'
 
-require "icapps/translations/configuration"
-require "icapps/translations/import/xcode"
+require 'icapps/translations/configuration'
+require 'icapps/translations/import/xcode'
 
 module Icapps
   module Translations

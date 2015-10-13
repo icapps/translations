@@ -4,10 +4,10 @@ require 'yaml'
 module Icapps
   module Translations
     class Configuration
-      attr :url
-      attr :filename
-      attr :project_key
-      attr :default_language
+      attr_reader :url
+      attr_reader :filename
+      attr_reader :project_key
+      attr_reader :default_language
 
       class << self
         def create
@@ -16,12 +16,12 @@ module Icapps
             return
           end
 
-          File.open(path, "w") { |f| f.write(initial_content.to_yaml) }
+          File.open(path, 'w') { |f| f.write(initial_content.to_yaml) }
           puts "[MESSAGE] Configuration created at '#{path}'.".colorize(:green)
         end
 
         def exists?
-          File.exists?(path)
+          File.exist?(path)
         end
 
         def path
@@ -37,14 +37,12 @@ module Icapps
         end
 
         def initial_content
-          ::Icapps::Translations.is_android? ? android_initial_content : common_initial_content
+          ::Icapps::Translations.android? ? android_initial_content : common_initial_content
         end
 
         def android_initial_content
-          common_initial_content.merge!({
-            filename: 'strings.xml',
-            default_language: 'en'
-          })
+          common_initial_content.merge!(filename: 'strings.xml',
+                                        default_language: 'en')
         end
 
         def common_initial_content
@@ -71,7 +69,7 @@ module Icapps
       def read_config
         puts "[VERBOSE] Reading the config file at '#{Configuration.path}'.".colorize(:white) if Configuration.options[:verbose]
 
-        params = YAML::load File.open(Configuration.path)
+        params = YAML.load File.open(Configuration.path)
         if params
           @filename         = params[:filename]
           @url              = params[:url]

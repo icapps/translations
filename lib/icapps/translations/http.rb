@@ -6,13 +6,13 @@ module Icapps
   module Translations
     class Http
       class << self
-        def authenticated_response(path, is_json=false)
+        def authenticated_response(path, is_json = false)
           uri = URI("#{config.url}/#{path}")
           puts "[VERBOSE] Connecting to url '#{uri}'.".colorize(:white) if options[:verbose]
 
           http = Net::HTTP.new(uri.host, uri.port)
           request =  Net::HTTP::Get.new(uri)
-          request.add_field "Authorization", "Token token=#{config.project_key}"
+          request.add_field 'Authorization', "Token token=#{config.project_key}"
           response = http.request(request)
           is_json ? JSON.parse(response.body) : response.body
         end

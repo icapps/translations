@@ -1,6 +1,6 @@
 require 'colorize'
 
-require "icapps/translations/http"
+require 'icapps/translations/http'
 
 module Icapps
   module Translations
@@ -14,7 +14,7 @@ module Icapps
             puts "[VERBOSE] There are currently #{languages_json.count} language(s) for this project.".colorize(:white) if options[:verbose]
 
             languages_json.each { |language| fetch_language_file language }
-            puts "[MESSAGE] Finished importing translation.".colorize(:green)
+            puts '[MESSAGE] Finished importing translation.'.colorize(:green)
           end
 
           def options
