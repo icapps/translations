@@ -18,16 +18,8 @@ module Icapps
               puts "[WARNING] Multiple 'Localizable.string' files found for the #{short_name} language.".colorize(:yellow)
             else
               strings = ::Icapps::Translations::Http.authenticated_response("translations/#{language['id']}.strings")
-              write_to_strings_file strings, string_files, language
+              write_to_file strings, string_files, language
             end
-          end
-
-          private
-
-          def write_to_strings_file(strings, string_files, language)
-            path = string_files.first
-            File.open(path, 'w+') { |file| file.puts strings }
-            puts "[VERBOSE] Written #{language['short_name']} translations to #{path}.".colorize(:green) if options[:verbose]
           end
         end
       end

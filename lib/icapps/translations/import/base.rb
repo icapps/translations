@@ -28,6 +28,11 @@ module Icapps
           def fetch_languages
             ::Icapps::Translations::Http.authenticated_response('languages.json', true)
           end
+
+          def write_to_file(content, files, language)
+            File.open(files.first, 'w+') { |file| file.puts content }
+            puts "[VERBOSE] Written #{language['short_name']} translations to #{files.first}.".colorize(:green) if options[:verbose]
+          end
         end
       end
     end

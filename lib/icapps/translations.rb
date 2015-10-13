@@ -1,6 +1,7 @@
 require "icapps/translations/version"
 require "icapps/translations/cli"
-require "icapps/translations/import/base"
+require "icapps/translations/import/xcode"
+require "icapps/translations/import/gradle"
 
 module Icapps
   module Translations
