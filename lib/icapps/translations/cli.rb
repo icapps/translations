@@ -2,7 +2,7 @@ require 'thor'
 require 'colorize'
 
 require "icapps/translations/configuration"
-require "icapps/translations/strings"
+require "icapps/translations/import/xcode"
 
 module Icapps
   module Translations
@@ -37,12 +37,12 @@ module Icapps
           puts "[VERBOSE] Detected an Xcode project.".colorize(:white) if options[:verbose]
 
           ::Icapps::Translations.options = options
-          ::Icapps::Translations::Strings.import
+          ::Icapps::Translations::Import::Xcode.import
         elsif ::Icapps::Translations.is_android?
           puts "[VERBOSE] Detected an Android project with a .gradle file.".colorize(:white) if options[:verbose]
 
           ::Icapps::Translations.options = options
-          ::Icapps::Translations.import
+          ::Icapps::Translations::Import::Xcode.import
         else
           abort '[ERROR] No Xcode or Android gradle file detected.'.colorize(:red) unless @project_key
         end

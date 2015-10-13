@@ -1,7 +1,6 @@
 require "icapps/translations/version"
 require "icapps/translations/cli"
-require "icapps/translations/import"
-require "icapps/translations/strings"
+require "icapps/translations/import/base"
 
 module Icapps
   module Translations
@@ -17,7 +16,7 @@ module Icapps
         config.validate
 
         # Import the strings files.
-        Strings.import
+        Import::Base.import
       end
 
       def is_android?
