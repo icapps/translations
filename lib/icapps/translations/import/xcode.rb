@@ -1,7 +1,7 @@
 require 'colorize'
 
-require "icapps/translations/http"
-require "icapps/translations/import/base"
+require 'icapps/translations/http'
+require 'icapps/translations/import/base'
 
 module Icapps
   module Translations
