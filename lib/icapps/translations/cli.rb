@@ -33,19 +33,8 @@ module Icapps
       option :verbose, type: :boolean
       def import
         puts "[VERBOSE] Running the 'translations import command'.".colorize(:white) if options[:verbose]
-        if ::Icapps::Translations.is_xcode?
-          puts "[VERBOSE] Detected an Xcode project.".colorize(:white) if options[:verbose]
-
-          ::Icapps::Translations.options = options
-          ::Icapps::Translations::Import::Xcode.import
-        elsif ::Icapps::Translations.is_android?
-          puts "[VERBOSE] Detected an Android project with a .gradle file.".colorize(:white) if options[:verbose]
-
-          ::Icapps::Translations.options = options
-          ::Icapps::Translations::Import::Xcode.import
-        else
-          abort '[ERROR] No Xcode or Android gradle file detected.'.colorize(:red) unless @project_key
-        end
+        ::Icapps::Translations.options = options
+        ::Icapps::Translations.import
       end
     end
   end

@@ -15,8 +15,16 @@ module Icapps
         # Validate the configuration file. Abort when invalid.
         config.validate
 
-        # Import the strings files.
-        Import::Base.import
+        # Import the files.
+        if is_xcode?
+          puts "[VERBOSE] Detected an Xcode project.".colorize(:white) if options[:verbose]
+          Import::Xcode.import
+        elsif is_android?
+          puts "[VERBOSE] Detected an Android project with a .gradle file.".colorize(:white) if options[:verbose]
+          Import::Gradle.import
+        else
+          abort '[ERROR] No Xcode or Android gradle file detected.'.colorize(:red) unless @project_key
+        end
       end
 
       def is_android?
