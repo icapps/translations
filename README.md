@@ -25,6 +25,26 @@ Or install it yourself as:
 
 _You can pass the `--verbose` parameter to both commands in order to get more detailed information on what is happening._
 
+### Xcode
+
+The 'translations' gem currently supports the following folder structure for **iOS**:
+
+`*/en.lproj/Localizable.strings`
+
+In this case the language's short name is 'en' and the filename in the configuration is set to 'Localizable.strings'. The en.lproj folder can be nested inside other folders.
+
+### Android
+
+We currently check if the folder has an android project by looking for `.gradle` files. So this is currently the only supported way for Android.
+
+The 'translations' gem currently supports the following folder structure for **Android**:
+
+`app/src/main/res/values-en/strings.xml`
+
+In this case the language's short name is 'en' and the filename in the configuration is set to 'strings.xml'. It's important that this structure is available as defined above. This is currently not configurable.
+
+When you have a `default_language` set to 'en' in your configuration file the `values-en` will be `values` instead.
+
 ## Build gem
 
 Start by updating the version number in the `lib/icapps/translations/version.rb` file.
