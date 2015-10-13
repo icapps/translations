@@ -7,6 +7,7 @@ module Icapps
       attr :url
       attr :filename
       attr :project_key
+      attr :default_language
 
       class << self
         def create
@@ -61,9 +62,10 @@ module Icapps
 
         params = YAML::load File.open(Configuration.path)
         if params
-          @filename = params[:filename]
-          @url = params[:url]
-          @project_key = params[:project_key]
+          @filename         = params[:filename]
+          @url              = params[:url]
+          @project_key      = params[:project_key]
+          @default_language = params[:default_language]
         end
       end
     end

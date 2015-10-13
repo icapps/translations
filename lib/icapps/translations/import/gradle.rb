@@ -27,9 +27,12 @@ module Icapps
 
           private
 
+          def default_language
+            config.default_language || 'en'
+          end
+
           def values_name(short_name)
-            if short_name == 'en'
-              # Default language is English.
+            if short_name == default_language
               'values'
             else
               # Android requires the country code to be prefixed with an 'r'.
