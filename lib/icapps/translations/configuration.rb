@@ -37,6 +37,17 @@ module Icapps
         end
 
         def initial_content
+          ::Icapps::Translations.is_android? ? android_initial_content : common_initial_content
+        end
+
+        def android_initial_content
+          common_initial_content.merge!({
+            filename: 'strings.xml',
+            default_language: 'en'
+          })
+        end
+
+        def common_initial_content
           {
             url:         'http://your_url.com',
             filename:    'Localizable.strings',
