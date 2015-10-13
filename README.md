@@ -23,6 +23,8 @@ Or install it yourself as:
 - `translations init`: Run from your project root in order to setup the translations configuration.
 - `translations import`: Run from your project root in order to import the translations into the matching _.strings_ files.
 
+_You can pass the `--verbose` parameter to both commands in order to get more detailed information on what is happening._
+
 ## Build gem
 
 Start by updating the version number in the `lib/icapps/translations/version.rb` file.
@@ -34,7 +36,7 @@ Then build the gem by running the following commands:
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/icapps-translations/fork )
+1. Fork it ( https://github.com/icapps/translations/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
