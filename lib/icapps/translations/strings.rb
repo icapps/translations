@@ -1,35 +1,12 @@
 require 'colorize'
 
 require "icapps/translations/http"
+require "icapps/translations/import"
 
 module Icapps
   module Translations
-    class Strings
+    class Strings < Import
       class << self
-        def import
-          puts "[VERBOSE] Importing translations from project with key #{options.project_key}".colorize(:white) if options[:verbose]
-
-          languages_json = fetch_languages
-          puts "[VERBOSE] There are currently #{languages_json.count} language(s) for this project.".colorize(:white) if options[:verbose]
-
-          languages_json.each { |language| fetch_language_strings_file language }
-          puts "[MESSAGE] Finished importing translation.".colorize(:green)
-        end
-
-        private
-
-        def options
-          ::Icapps::Translations.options
-        end
-
-        def config
-          ::Icapps::Translations.config
-        end
-
-        def fetch_languages
-          ::Icapps::Translations::Http.authenticated_response('languages.json', true)
-        end
-
         def fetch_language_strings_file(language)
           short_name = language['short_name']
           puts "[VERBOSE] Fetching #{short_name} translations.".colorize(:white) if options[:verbose]
