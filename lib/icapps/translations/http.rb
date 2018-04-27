@@ -1,12 +1,15 @@
 require 'colorize'
 require 'net/http'
 require 'json'
+require 'openssl'
 
 module Icapps
   module Translations
     class Http
       class << self
         def authenticated_response(path, is_json = false)
+          OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
           uri = URI("#{config.url}/#{path}")
           puts "[VERBOSE] Connecting to url '#{uri}'.".colorize(:white) if options[:verbose]
 
