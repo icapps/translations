@@ -11,6 +11,7 @@ module Icapps
           puts "[VERBOSE] Connecting to url '#{uri}'.".colorize(:white) if options[:verbose]
 
           http = Net::HTTP.new(uri.host, uri.port)
+          http.use_ssl = uri.scheme == 'https'
           request =  Net::HTTP::Get.new(uri)
           request.add_field 'Authorization', "Token token=#{config.project_key}"
           response = http.request(request)
