@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Icapps::Translations::VERSION
   spec.authors       = ['Jelle Vandebeeck']
   spec.email         = ['jelle.vandebeeck@icapps.com']
-  spec.summary       = 'Import translations from the iCapps translations portal.'
+  spec.summary       = 'Import translations from the icapps translations portal.'
   spec.homepage      = 'https://github.com/icapps/translations'
   spec.license       = 'MIT'
 
