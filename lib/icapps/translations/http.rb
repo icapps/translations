@@ -13,8 +13,6 @@ module Icapps
 
           http = Net::HTTP.new(uri.host, uri.port)
           http.use_ssl = uri.scheme == 'https'
-          # Disable SSL for now.
-          http.verify_mode = OpenSSL::SSL::VERIFY_NONE
           request =  Net::HTTP::Get.new(uri)
           request.add_field 'Authorization', "Token token=#{config.project_key}"
           response = http.request(request)

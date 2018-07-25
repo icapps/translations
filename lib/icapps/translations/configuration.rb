@@ -37,11 +37,22 @@ module Icapps
         end
 
         def initial_content
-          ::Icapps::Translations.android? ? android_initial_content : common_initial_content
+          if ::Icapps::Translations::android?
+            android_initial_content
+          elsif ::Icapps::Translations::react?
+            react_initial_content
+          else
+            common_initial_content
+          end
         end
 
         def android_initial_content
           common_initial_content.merge!(filename: 'strings.xml',
+                                        default_language: 'en')
+        end
+
+        def react_initial_content
+          common_initial_content.merge!(filename: '*.json',
                                         default_language: 'en')
         end
 
