@@ -38,13 +38,10 @@ module Icapps
 
         def initial_content
           if ::Icapps::Translations::android?
-            puts "[MESSAGE] Android.".colorize(:red)
             android_initial_content
           elsif ::Icapps::Translations::react?
-            puts "[MESSAGE] React Native.".colorize(:red)
             react_initial_content
           else
-            puts "[MESSAGE] iOS.".colorize(:red)
             common_initial_content
           end
         end
