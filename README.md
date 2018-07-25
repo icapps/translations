@@ -1,6 +1,6 @@
-# iCapps Translations
+# icapps Translations
 
-Import the translations from the iCapps translations portal.
+Import the translations from the icapps translations portal.
 
 ## Installation
 
@@ -44,6 +44,16 @@ The 'translations' gem currently supports the following folder structure for **A
 In this case the language's short name is 'en' and the filename in the configuration is set to 'strings.xml'. It's important that this structure is available as defined above. This is currently not configurable.
 
 When you have a `default_language` set to 'en' in your configuration file the `values-en` will be `values` instead.
+
+### React Native
+
+We currently check if the folder has an react project by looking for `package.json` files.
+
+The 'translations' gem currently supports the following folder structure for **React**:
+
+`labels/en.json`
+
+In this case the language's short name is 'en' and the filename in the configuration is set to 'en.json'. It's important that this structure is available as defined above. This is currently not configurable.
 
 ## Build gem
 
