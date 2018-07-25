@@ -13,7 +13,9 @@ module Icapps
             puts "[VERBOSE] Fetching #{short_name} translations.".colorize(:white) if options[:verbose]
             json_files = Dir.glob("labels/#{short_name}.json")
 
-            if json_files.count > 1
+            if json_files.count == 0
+              puts "[WARNING] No '#{short_name}.json' file found for the #{short_name} language.".colorize(:yellow)
+            elsif json_files.count > 1
               puts "[WARNING] Multiple '#{short_name}.json' files found for the #{short_name} language.".colorize(:yellow)
             else
               json = ::Icapps::Translations::Http.authenticated_response("translations/#{language['id']}.json")
