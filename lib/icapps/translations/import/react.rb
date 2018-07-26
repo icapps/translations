@@ -34,7 +34,7 @@ module Icapps
             end
 
             puts "[VERBOSE] Creating '#{language}.json'.".colorize(:white) if options[:verbose]
-            return File.open("#{default_directory}/#{language}.json", "w") {}
+            File.open("#{default_directory}/#{language}.json", "w") {}
             
             puts "[VERBOSE] Rescan the project.".colorize(:white) if options[:verbose]
             return Dir.glob("#{default_directory}/#{language}.json")
